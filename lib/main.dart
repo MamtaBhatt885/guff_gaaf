@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:guff_gaaf/pages/login_page.dart';
+import 'package:guff_gaaf/themes/light_mode.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+      theme: lightMode,
+    );
+  }
+}
