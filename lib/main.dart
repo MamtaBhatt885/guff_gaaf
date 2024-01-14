@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:guff_gaaf/pages/login_page.dart';
+import 'package:guff_gaaf/auth/auth_gate.dart';
+import 'package:guff_gaaf/auth/loginorregister.dart';
+import 'package:guff_gaaf/firebase_options.dart';
 import 'package:guff_gaaf/themes/light_mode.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -14,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: AuthGate(),
       theme: lightMode,
     );
   }

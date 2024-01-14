@@ -1,40 +1,51 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:guff_gaaf/auth/auth_service.dart';
 import 'package:guff_gaaf/component/my_button.dart';
 import 'package:guff_gaaf/component/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
 //email and pw text controllers to take the data what user had typed
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwController = TextEditingController();
+  final TextEditingController _checkPassword = TextEditingController();
 
-//tap to go to register page
-  final void Function()? onTap;
+  //tap to go to login page
+  void Function()? onTap;
 
-  LoginPage({super.key, required this.onTap});
+  RegisterPage({super.key, required this.onTap});
 
-  //login method
+  //register method
 
-  void login(BuildContext context) async {
-//auth service
-    final authService = AuthService();
+  void register(BuildContext context) {
+//get auth service
+    final _auth = AuthService();
 
-//try login
-    try {
-      await authService.signInWithEmailPassword(
-          _emailController.text, _pwController.text);
+    //password match create user
+
+    if (_pwController.text == _checkPassword.text) {
+      try {
+        _auth.signUpWithEmailPassword(
+            _emailController.text, _pwController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+      }
     }
-//catch any errors
-    catch (e) {
+    //passwords don't match-> show error
+    else {
       showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(e.toString()),
-        ),
-      );
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Passwords don't match"),
+              ));
     }
   }
 
@@ -57,7 +68,7 @@ class LoginPage extends StatelessWidget {
             ),
             //welcome back message
             Text(
-              "Welcome back to guff gaaf",
+              "Become a member of guff gaaf, register here",
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
             ),
             SizedBox(
@@ -84,28 +95,39 @@ class LoginPage extends StatelessWidget {
               height: 20,
             ),
 
-            //login button
+            // check password
+            MyTextField(
+              hintText: "Enter your password",
+              obscureText: true,
+              controller: _checkPassword,
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
+
+            //register button
             MyButton(
-              text: "Login",
-              onTap: () => login(context),
+              text: "Register",
+              onTap: () => register(context),
             ),
 
             const SizedBox(
               height: 20,
             ),
-            //register now
+            //login now
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Not a member? ",
+                  "Already a member? ",
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
-                    "Register now",
+                    "Login",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),

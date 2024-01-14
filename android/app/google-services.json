@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "621392583405",
+    "project_id": "guff-gaaf",
+    "storage_bucket": "guff-gaaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621392583405:android:aef30cf1067dca287f8ae4",
+        "android_client_info": {
+          "package_name": "com.example.guff_gaaf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8mUGig0EAXsXBiY-oix1NxE_0WPKozYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
