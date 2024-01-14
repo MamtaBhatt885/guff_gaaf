@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guff_gaaf/auth/auth_gate.dart';
-import 'package:guff_gaaf/auth/loginorregister.dart';
+import 'package:guff_gaaf/services/auth/auth_gate.dart';
+import 'package:guff_gaaf/services/auth/loginorregister.dart';
 import 'package:guff_gaaf/firebase_options.dart';
 import 'package:guff_gaaf/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
