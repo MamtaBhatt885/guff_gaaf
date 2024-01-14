@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:guff_gaaf/auth/auth_service.dart';
 import 'package:guff_gaaf/component/my_button.dart';
