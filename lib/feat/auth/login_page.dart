@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guff_gaaf/components/buttons.dart';
 import 'package:guff_gaaf/components/my_textfield.dart';
@@ -10,7 +11,17 @@ class LoginPage extends StatelessWidget {
   final TextEditingController _emailController =TextEditingController();
   final TextEditingController _pwController =TextEditingController();
 
-   LoginPage({super.key});
+ //tap to go to register page
+ final void Function()? onTap;
+
+   LoginPage({super.key, required this.onTap});
+
+   //login method
+  void login(){
+    //
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +50,19 @@ MyTextField(hintText: "Enter your email",obscureText: false,controller:_emailCon
 
             SizedBox(height: 20,),
             //login button
-Buttons(text: "Login",onTap: (){},),
-
+Buttons(text: "Login",onTap: login,),
+            SizedBox(height: 20,),
 
             //register now
-
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Text("Not a member? ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
+    GestureDetector(
+        onTap:onTap ,
+        child: Text(" Register now ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),)),
+  ],
+)
 
 
           ],
