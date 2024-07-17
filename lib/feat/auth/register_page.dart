@@ -4,20 +4,26 @@ import 'package:flutter/material.dart';
 import '../../components/buttons.dart';
 import '../../components/my_textfield.dart';
 
-class RegisterPage extends StatelessWidget {
-  final TextEditingController _emailController =TextEditingController();
-  final TextEditingController _pwController =TextEditingController();
-  final TextEditingController _confirmPwController =TextEditingController();
-
-  //tap to goto login page
+class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
 
 
   RegisterPage({super.key, required this.onTap});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _emailController =TextEditingController();
+
+  final TextEditingController _pwController =TextEditingController();
+
+  final TextEditingController _confirmPwController =TextEditingController();
+
   void register(){
     //
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +64,7 @@ class RegisterPage extends StatelessWidget {
               children: [
                 Text("Already have an account? ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
                 GestureDetector(
-                    onTap: onTap,
+                    onTap: widget.onTap,
                     child: Text(" Login now ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),)),
               ],
             )

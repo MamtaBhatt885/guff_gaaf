@@ -3,25 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:guff_gaaf/components/buttons.dart';
 import 'package:guff_gaaf/components/my_textfield.dart';
 
-import '../theme/light_theme.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+
+ final void Function()? onTap;
+
+  const LoginPage({super.key, required this.onTap});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
 
   //email and pw controller
   final TextEditingController _emailController =TextEditingController();
+
   final TextEditingController _pwController =TextEditingController();
-
- //tap to go to register page
- final void Function()? onTap;
-
-   LoginPage({super.key, required this.onTap});
 
    //login method
   void login(){
     //
 
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +64,12 @@ Row(
   children: [
     Text("Not a member? ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary)),
     GestureDetector(
-        onTap:onTap ,
-        child: Text(" Register now ",style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontWeight: FontWeight.bold),)),
+        onTap:widget.onTap ,
+        child: Text(" Register now ",
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.tertiary,
+              fontWeight: FontWeight.bold),)
+    ),
   ],
 )
 
