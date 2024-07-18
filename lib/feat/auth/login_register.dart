@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guff_gaaf/feat/auth/login_page.dart';
-import 'package:guff_gaaf/feat/auth/register_page.dart';
+import 'package:guff_gaaf/feat/pages/login_page.dart';
+import 'package:guff_gaaf/feat/pages/register_page.dart';
 
 class LoginRegister extends StatefulWidget {
   const LoginRegister({super.key});
