@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guff_gaaf/components/buttons.dart';
 import 'package:guff_gaaf/components/my_textfield.dart';
+import 'package:guff_gaaf/feat/auth/auth_services.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -23,9 +24,21 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _pwController =TextEditingController();
 
    //login method
-  void login(){
-    //
-
+  void login(BuildContext context) async{
+    //auth service
+    final authService =AuthService();
+//try login
+try{
+await authService.signInWithEmailPassword(_emailController.text, _pwController.text);
+}
+  //catch any errors
+catch(e){
+  showDialog(context: context,
+      builder: (context) => AlertDialog(
+        title: Text(e.toString()),
+      )
+  );
+}
   }
 
   @override
@@ -55,7 +68,7 @@ MyTextField(hintText: "Enter your email",obscureText: false,controller:_emailCon
 
             SizedBox(height: 20,),
             //login button
-Buttons(text: "Login",onTap: login,),
+Buttons(text: "Login",onTap: ()=>login(context),),
             SizedBox(height: 20,),
 
             //register now
