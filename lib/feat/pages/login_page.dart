@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guff_gaaf/components/buttons.dart';
 import 'package:guff_gaaf/components/my_textfield.dart';
-import 'package:guff_gaaf/feat/auth/auth_services.dart';
+import 'package:guff_gaaf/services/auth/auth_services.dart';
 
 
 class LoginPage extends StatefulWidget {
