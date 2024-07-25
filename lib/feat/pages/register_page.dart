@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/buttons.dart';
 import '../../components/my_textfield.dart';
-import '../auth/auth_services.dart';
+import '../../services/auth/auth_services.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
