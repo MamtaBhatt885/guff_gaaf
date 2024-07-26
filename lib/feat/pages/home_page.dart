@@ -55,6 +55,7 @@ if(snapshot.connectionState==ConnectionState.waiting){
   //build individual list tile for user
 Widget _buildUserListItem(Map<String,dynamic>userData, BuildContext context){
     //display all users except current users
+if(userData["email"]!= _authService.getCurrentUser()!.email){
   return UserTile(
     text: userData["email"],
     onTap: (){
@@ -62,10 +63,14 @@ Widget _buildUserListItem(Map<String,dynamic>userData, BuildContext context){
       Navigator.push(context,
           MaterialPageRoute(builder: (context)=>ChatPage(
             receiverEmail: userData["email"],
+            receiverID: userData["uid"],
           )));
-      
+
     },
   );
+}else{
+  return Container();
+}
 }
 
 

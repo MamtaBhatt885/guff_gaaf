@@ -15,13 +15,18 @@ final void Function()? onTap;
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
-      child: Row(
-        children: [
-          //Icon
-          Icon(Icons.person),
-          //User Name
-          Text(text),
-        ],
+    margin: EdgeInsets.symmetric(vertical: 5,horizontal: 25),
+      child: Padding(
+        padding: const EdgeInsets.only(top:10.0,left: 10),
+        child: Row(
+          children: [
+            //Icon
+            Icon(Icons.person,color:Theme.of(context).colorScheme.tertiary,size:16),
+const SizedBox(width: 20,),
+            //User Name
+            Text(text,style: TextStyle(color: Theme.of(context).colorScheme.tertiary,fontSize: 16),),
+          ],
+        ),
       ),)
       ,
     );
