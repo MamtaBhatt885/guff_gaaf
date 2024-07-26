@@ -16,8 +16,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
 
-
-      backgroundColor: Theme.of(context).colorScheme.secondary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
 
   child: Column(
 mainAxisAlignment: MainAxisAlignment.spaceBetween,

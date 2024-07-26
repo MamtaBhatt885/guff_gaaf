@@ -16,14 +16,16 @@ final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         centerTitle: true,
-        title: Text("Home",style: TextStyle(color:Theme.of(context).colorScheme.tertiary,fontSize: 24 ),
-
-
+        title: Text("Home",
+          style: TextStyle(color:Theme.of(context).colorScheme.tertiary,
+              fontSize: 24 ),
       ),
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         iconTheme: IconThemeData(
           color: Theme.of(context).colorScheme.tertiary, // Change the drawer icon color here
         ),),
