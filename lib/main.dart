@@ -1,16 +1,23 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:guff_gaaf/feat/theme/theme_provider.dart';
 import 'package:guff_gaaf/services/auth/auth_gate.dart';
 
-import 'package:guff_gaaf/feat/theme/light_theme.dart';
+import 'package:guff_gaaf/feat/theme/light_mode.dart';
 import 'package:guff_gaaf/firebase_options.dart';
+import 'package:provider/provider.dart';
 
 import 'services/auth/login_register.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options:DefaultFirebaseOptions .currentPlatform);
-  runApp(const MyApp());
+  runApp(
+      ChangeNotifierProvider(create:
+          (context)=>ThemeProvider(),
+        child: const MyApp(),
+        ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:  AuthGate(),
-      theme: LightMode,
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
